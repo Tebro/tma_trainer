@@ -120,16 +120,29 @@ describe('scoreClassify', () => {
   });
 
   it('gives partial credit on garbled with family match', () => {
-    const cue = generateSonarCue(
-      'C-1',
-      'submarine',
-      'whisper-class',
-      'high',
-      's',
-      0
-    );
+    const cue = {
+      contactId: 'C-1',
+      timestampSec: 0,
+      signatureCategory: 'whisper-class',
+      clarity: 'garbled' as const,
+      confidenceBoost: -0.4,
+    };
     // When garbled, any sub-signature counts
     const score = scoreClassify('whisper-class', 'high', 'submarine', cue);
+    expect(score).toBeGreaterThan(0);
+  });
+
+  it('gives partial credit on garbled with overlapping category family', () => {
+    const cue = {
+      contactId: 'C-1',
+      timestampSec: 0,
+      signatureCategory: 'ghost-class',
+      clarity: 'garbled' as const,
+      confidenceBoost: -0.4,
+    };
+
+    const score = scoreClassify('biologic', 'high', 'submarine', cue);
+
     expect(score).toBeGreaterThan(0);
   });
 });

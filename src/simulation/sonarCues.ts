@@ -18,6 +18,14 @@ export const SIGNATURE_CATEGORIES: string[] = [
   'steady-thrum',
 ];
 
+const CONTACT_CATEGORIES: ContactCategory[] = [
+  'merchant',
+  'submarine',
+  'surface-combatant',
+  'biologic',
+  'unknown',
+];
+
 /**
  * Ambiguous cue qualities. Lower clarity = more ambiguous.
  */
@@ -177,9 +185,26 @@ function isCategoryMatch(
 ): boolean {
   if (clarity !== 'garbled') return estimate === truth;
 
-  // When garbled, any guess in the right family counts
-  const family = getSignaturesForCategory(truth);
-  return family.includes(estimate);
+  // When garbled, accept a signature in the right family or a category whose
+  // signature family overlaps the truth category.
+  const truthFamily = getSignaturesForCategory(truth);
+  if (truthFamily.includes(estimate)) return true;
+
+  if (
+    !isContactCategory(estimate) ||
+    estimate === 'unknown' ||
+    truth === 'unknown'
+  ) {
+    return false;
+  }
+
+  return getSignaturesForCategory(estimate).some((signature) =>
+    truthFamily.includes(signature)
+  );
+}
+
+function isContactCategory(value: string): value is ContactCategory {
+  return CONTACT_CATEGORIES.includes(value as ContactCategory);
 }
 
 /**

@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { ScenarioPlayback } from '../../src/simulation/playback';
 
 function makeScenario(durationSec = 300, contactsCount = 1) {
@@ -105,6 +105,21 @@ describe('play / pause / toggle', () => {
     pb.play();
     expect(pb.isPlaying).toBe(true);
     pb.dispose();
+  });
+
+  it('play advances one simulated second per real second at 1x', () => {
+    vi.useFakeTimers();
+    const pb = new ScenarioPlayback(makeScenario());
+
+    try {
+      pb.play();
+      vi.advanceTimersByTime(1000);
+
+      expect(pb.currentTime).toBe(1);
+    } finally {
+      pb.dispose();
+      vi.useRealTimers();
+    }
   });
 
   it('pause sets isPlaying to false', () => {

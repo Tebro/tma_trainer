@@ -50,7 +50,7 @@ export class ScenarioPlayback {
     // Tick every 1 real second = _speed simulated seconds
     this._timerId = setInterval(() => {
       this.step(1);
-    }, 100);
+    }, 1000);
   }
 
   /** Pause automatic time advancement. */
