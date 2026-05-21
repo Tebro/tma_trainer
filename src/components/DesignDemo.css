@@ -1,0 +1,104 @@
+@import '../styles/tokens.css';
+
+.design-demo {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: var(--tma-space-6) var(--tma-space-4);
+}
+
+.design-demo__heading {
+  font-size: var(--tma-text-2xl);
+  font-weight: 700;
+  margin-bottom: var(--tma-space-8);
+  color: var(--tma-accent-cyan);
+}
+
+.design-demo__section {
+  margin-bottom: var(--tma-space-10);
+}
+
+.design-demo__section-title {
+  font-size: var(--tma-text-lg);
+  font-weight: 600;
+  margin-bottom: var(--tma-space-4);
+  color: var(--tma-text-primary);
+  border-bottom: 1px solid var(--tma-border-subtle);
+  padding-bottom: var(--tma-space-2);
+}
+
+.design-demo__swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--tma-space-6);
+}
+
+.design-demo__swatch-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--tma-space-2);
+}
+
+.design-demo__group-label {
+  font-size: var(--tma-text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--tma-text-secondary);
+  margin-bottom: var(--tma-space-1);
+}
+
+.design-demo__swatch {
+  display: flex;
+  align-items: center;
+  gap: var(--tma-space-3);
+}
+
+.design-demo__swatch-color {
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--tma-radius-md);
+  border: 1px solid var(--tma-border-default);
+  flex-shrink: 0;
+}
+
+.design-demo__swatch-name {
+  font-size: var(--tma-text-sm);
+  color: var(--tma-text-secondary);
+}
+
+.design-demo__text-xs {
+  font-size: var(--tma-text-xs);
+}
+.design-demo__text-sm {
+  font-size: var(--tma-text-sm);
+}
+.design-demo__text-base {
+  font-size: var(--tma-text-base);
+}
+.design-demo__text-lg {
+  font-size: var(--tma-text-lg);
+}
+.design-demo__text-xl {
+  font-size: var(--tma-text-xl);
+}
+.design-demo__text-2xl {
+  font-size: var(--tma-text-2xl);
+}
+
+.design-demo__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--tma-space-4);
+}
+
+.design-demo__inline-target {
+  display: inline-block;
+  padding: var(--tma-space-2) var(--tma-space-3);
+  background-color: var(--tma-bg-raised);
+  border: 1px dashed var(--tma-border-default);
+  border-radius: var(--tma-radius-sm);
+  font-size: var(--tma-text-sm);
+  color: var(--tma-text-secondary);
+  cursor: help;
+}

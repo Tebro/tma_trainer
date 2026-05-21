@@ -1,0 +1,80 @@
+{
+  "id": "bearing-rate",
+  "title": "How Bearing Rate Helps Solve the Puzzle",
+  "summary": "Discover how the rate at which a bearing changes reveals the contact's position relative to your own track.",
+  "difficulty": "intro",
+  "objectives": [
+    "Identify when a bearing is changing quickly vs slowly",
+    "Relate bearing rate to the contact's relative geometry",
+    "Use two bearing observations separated by time to estimate bearing rate",
+    "Submit a course estimate and compare it to truth"
+  ],
+  "initialConditions": {
+    "ownship": {
+      "position": { "x": 0, "y": 0 },
+      "course": 90,
+      "speed": 8
+    },
+    "contacts": [
+      {
+        "id": "CONTACT-1",
+        "category": "submarine",
+        "position": { "x": 4000, "y": 2000 },
+        "course": 270,
+        "speed": 10
+      }
+    ]
+  },
+  "sensor": {
+    "bearingNoiseDeg": 1.0,
+    "updateIntervalSec": 30,
+    "classificationAmbiguity": "low"
+  },
+  "tasks": [
+    {
+      "id": "task-1",
+      "title": "First Bearing",
+      "description": "A contact is detected on bearing 045°. Before advancing time, predict: will the bearing drift toward 000° or toward 090°?"
+    },
+    {
+      "id": "task-2",
+      "title": "Observe Bearing Rate",
+      "description": "Advance time and watch the bearing change. At what simulated time does the bearing pass through due north (0°)? What does that tell you about the closest point of approach?"
+    },
+    {
+      "id": "task-3",
+      "title": "Estimate Course",
+      "description": "Based on the bearing history you have observed, submit your best estimate for the contact's course in degrees true."
+    }
+  ],
+  "hints": [
+    {
+      "id": "hint-1",
+      "taskId": "task-1",
+      "text": "The ownship is heading east and the contact is coming from the northeast. The bearing to a target on your port bow will shift left (toward 000°) as you get closer."
+    },
+    {
+      "id": "hint-2",
+      "taskId": "task-2",
+      "text": "When the bearing changes most slowly, the contact is near the closest point of approach. Fast bearing change means the contact is crossing your bow or stern."
+    },
+    {
+      "id": "hint-3",
+      "taskId": "task-3",
+      "text": "If the bearing rate is roughly constant, the contact is on a steady course. Extrapolate from two widely separated bearings to guess the contact's course."
+    }
+  ],
+  "debriefRules": [
+    {
+      "metric": "course",
+      "threshold": 0.6,
+      "feedback": "Consider how the bearing shifted over time. A leftward drift means the contact was to your port side moving westward."
+    },
+    {
+      "metric": "range",
+      "threshold": 0.5,
+      "feedback": "The speed of bearing change is related to how close the contact passes. Short CPA = fast bearing rate early on."
+    }
+  ],
+  "tags": ["intro", "bearing-rate", "cpa", "estimation"]
+}

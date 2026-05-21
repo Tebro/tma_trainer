@@ -1,0 +1,122 @@
+.tactical-plot {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--tma-plot-bg, #0a0a15);
+}
+
+.plot-grid line {
+  stroke: var(--tma-grid-line, #1a1a3a);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  stroke-opacity: 0.8;
+}
+
+.plot-overlay text {
+  user-select: none;
+  pointer-events: none;
+}
+
+.cursor-readout {
+  pointer-events: none;
+}
+
+.cursor-readout line {
+  stroke: #88ffcc;
+  stroke-width: 1;
+  stroke-opacity: 0.8;
+  vector-effect: non-scaling-stroke;
+}
+
+.cursor-readout rect {
+  fill: rgba(10, 18, 28, 0.92);
+  stroke: #3a806a;
+  stroke-width: 1;
+}
+
+.cursor-readout text {
+  fill: #c8ffe8;
+  font-family: system-ui, monospace;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  user-select: none;
+}
+
+.bearing-history line {
+  vector-effect: non-scaling-stroke;
+}
+
+.truth-track {
+  fill: none;
+  stroke-width: 1.5;
+  stroke-opacity: 0.65;
+  vector-effect: non-scaling-stroke;
+}
+
+.truth-track--ownship {
+  stroke: #00ccff;
+}
+
+.truth-track--contact {
+  stroke: #00ff88;
+}
+
+.estimate-errors line {
+  stroke: #ff8844;
+  stroke-dasharray: 4 3;
+  stroke-width: 1.25;
+  vector-effect: non-scaling-stroke;
+}
+
+.estimate-errors text {
+  fill: #ffb088;
+  font-family: system-ui, monospace;
+  font-size: 10px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.possible-positions circle {
+  fill: rgba(255, 224, 128, 0.18);
+  stroke: #ffe080;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.possible-positions text,
+.estimate-markers text,
+.hypothesis-marker text {
+  fill: #ffe080;
+  font-family: system-ui, monospace;
+  font-size: 10px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.estimate-markers circle {
+  fill: rgba(255, 136, 255, 0.2);
+  stroke: #ff88ff;
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}
+
+.estimate-markers text {
+  fill: #ffb8ff;
+}
+
+.hypothesis-marker circle {
+  fill: rgba(136, 255, 204, 0.18);
+  stroke: #88ffcc;
+  stroke-dasharray: 3 3;
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}
+
+.hypothesis-marker text {
+  fill: #c8ffe8;
+}
+
+.estimate-mark text {
+  user-select: none;
+  pointer-events: none;
+}

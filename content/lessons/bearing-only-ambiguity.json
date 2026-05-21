@@ -1,0 +1,80 @@
+{
+  "id": "bearing-only-ambiguity",
+  "title": "Why One Bearing Is Not Enough",
+  "summary": "Discover why one or two passive bearings cannot determine a contact's range by themselves, and how repeated bearing observations only start to constrain the possibilities.",
+  "difficulty": "intro",
+  "objectives": [
+    "Explain why one bearing does not provide range",
+    "Identify where a contact could be along a bearing line",
+    "Observe how bearing rate changes over time",
+    "Submit a deliberately uncertain hypothesis and compare it to truth"
+  ],
+  "initialConditions": {
+    "ownship": {
+      "position": { "x": 0, "y": 0 },
+      "course": 90,
+      "speed": 8
+    },
+    "contacts": [
+      {
+        "id": "CONTACT-1",
+        "category": "submarine",
+        "position": { "x": 6000, "y": 6000 },
+        "course": 270,
+        "speed": 10
+      }
+    ]
+  },
+  "sensor": {
+    "bearingNoiseDeg": 1.5,
+    "updateIntervalSec": 20,
+    "classificationAmbiguity": "low"
+  },
+  "tasks": [
+    {
+      "id": "task-1",
+      "title": "First Observation",
+      "description": "A new contact has been detected on bearing 045°. Look at the tactical plot. This bearing is not a position fix: the contact could be close, far, slow, fast, crossing, or opening anywhere along that line."
+    },
+    {
+      "id": "task-2",
+      "title": "Observe Bearing Rate",
+      "description": "Advance time and watch what happens to the bearing. The second line gives you bearing rate, but it still does not uniquely solve range because the contact's course and speed are unknown. It only lets you reject some impossible geometries."
+    },
+    {
+      "id": "task-3",
+      "title": "Estimate Range",
+      "description": "You cannot know the true range from these bearings alone. Submit a low-confidence estimate anyway so the debrief can reveal truth and show how under-constrained the problem is. Treat this as a hypothesis, not a calculation."
+    }
+  ],
+  "hints": [
+    {
+      "id": "hint-1",
+      "taskId": "task-1",
+      "text": "A bearing is a line, not a point. Without range, every point along that ray is still possible until other information rules it out."
+    },
+    {
+      "id": "hint-2",
+      "taskId": "task-2",
+      "text": "Bearing drift tells you relative motion, not absolute range. A nearby slow contact and a farther faster contact can sometimes produce similar bearing changes."
+    },
+    {
+      "id": "hint-3",
+      "taskId": "task-3",
+      "text": "There is no single correct method here yet. Pick a plausible range, course, and speed with low confidence. The point is to see how much uncertainty remains before maneuvering or collecting more observations."
+    }
+  ],
+  "debriefRules": [
+    {
+      "metric": "range",
+      "threshold": 0.5,
+      "feedback": "A poor range score is expected in this lesson. Passive bearings alone leave range ambiguous; an ownship maneuver or more bearing history is needed to narrow it down."
+    },
+    {
+      "metric": "course",
+      "threshold": 0.5,
+      "feedback": "The contact course is revealed in the debrief. Notice how the bearing drift pattern reflects the relative motion."
+    }
+  ],
+  "tags": ["intro", "bearing-only", "ambiguity", "range-estimation"]
+}

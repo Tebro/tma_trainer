@@ -1,0 +1,39 @@
+{
+  "id": "placeholder-scenario-001",
+  "title": "Placeholder Bearing-Only Scenario",
+  "description": "A minimal scenario for schema validation and UI development.",
+  "ownship": {
+    "position": { "x": 0, "y": 0 },
+    "course": 45,
+    "speed": 8,
+    "maneuvers": []
+  },
+  "contacts": [
+    {
+      "id": "S01",
+      "category": "submarine",
+      "position": { "x": 12000, "y": 8000 },
+      "course": 270,
+      "speed": 12,
+      "maneuvers": []
+    }
+  ],
+  "sensor": {
+    "bearingNoiseDeg": 1.5,
+    "updateIntervalSec": 20,
+    "classificationAmbiguity": "low"
+  },
+  "environment": {
+    "name": "Open Ocean"
+  },
+  "tasks": [],
+  "hints": [],
+  "debriefRules": [
+    {
+      "metric": "rangeError",
+      "threshold": 500,
+      "feedback": "Try comparing the signal strength trend to your estimated range."
+    }
+  ],
+  "durationSec": 300
+}

@@ -1,0 +1,84 @@
+{
+  "id": "ownship-maneuvering",
+  "title": "Ownship Maneuvers Improve the Solution",
+  "summary": "Learn why changing your own course or speed creates better geometry for solving a contact's track.",
+  "difficulty": "easy",
+  "objectives": [
+    "Recognize when initial bearing data creates ambiguous solutions",
+    "Observe how an ownship maneuver changes the bearing pattern",
+    "Understand the difference between good and bad crossing geometry",
+    "Submit a stable course estimate after a maneuver"
+  ],
+  "initialConditions": {
+    "ownship": {
+      "position": { "x": 0, "y": 0 },
+      "course": 0,
+      "speed": 8,
+      "maneuvers": [
+        { "timeSec": 120, "course": 90 },
+        { "timeSec": 300, "course": 0 }
+      ]
+    },
+    "contacts": [
+      {
+        "id": "CONTACT-1",
+        "category": "submarine",
+        "position": { "x": -3000, "y": 6000 },
+        "course": 180,
+        "speed": 6
+      }
+    ]
+  },
+  "sensor": {
+    "bearingNoiseDeg": 1.5,
+    "updateIntervalSec": 20,
+    "classificationAmbiguity": "medium"
+  },
+  "tasks": [
+    {
+      "id": "task-1",
+      "title": "Initial Ambiguity",
+      "description": "The contact is on bearing 330° and appears to be steady. Without an estimate, predict: could this contact be on a course of 090° or 180°? Why might both be possible with only one bearing line?"
+    },
+    {
+      "id": "task-2",
+      "title": "Observe the Maneuver Effect",
+      "description": "Step forward past T+2:00 when the ownship turns east. Watch how the bearing rate changes. Does it get faster or slower after the turn? What does that reveal about the contact's true course?"
+    },
+    {
+      "id": "task-3",
+      "title": "Submit Estimate",
+      "description": "After observing the bearing history through the maneuver, submit your best estimate for the contact's range, course, and speed."
+    }
+  ],
+  "hints": [
+    {
+      "id": "hint-1",
+      "taskId": "task-1",
+      "text": "With only one bearing, the contact could be anywhere along that line at any range. A steady bearing suggests the contact and ownship are on parallel courses OR moving directly toward/away from each other."
+    },
+    {
+      "id": "hint-2",
+      "taskId": "task-2",
+      "text": "A large change in bearing rate after a maneuver breaks the ambiguity. If the contact is crossing your bow, a turn toward it will make the bearing shift faster."
+    },
+    {
+      "id": "hint-3",
+      "taskId": "task-3",
+      "text": "The maneuver acts as a second observation point. Compare the bearing BEFORE the turn to the bearing AFTER the turn to triangulate."
+    }
+  ],
+  "debriefRules": [
+    {
+      "metric": "course",
+      "threshold": 0.7,
+      "feedback": "Notice how the maneuver at 2:00 made the contact's course much clearer. Before the turn, the bearing drift was too slow to distinguish a bow-on target from a crossing one."
+    },
+    {
+      "metric": "range",
+      "threshold": 0.5,
+      "feedback": "The ownship turn creates a triangulation baseline. The longer you wait after the turn before estimating, the better your range will be."
+    }
+  ],
+  "tags": ["easy", "maneuver", "geometry", "triangulation"]
+}

@@ -1,0 +1,186 @@
+.debrief-view {
+  padding: 1rem;
+  color: #d0d0e0;
+  overflow-y: auto;
+}
+
+.debrief-view__title {
+  color: #a0c4ff;
+  margin-bottom: 1rem;
+}
+
+.debrief-view__score {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.debrief-view__score-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #2a4a8a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #101030;
+}
+
+.debrief-view__score-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.debrief-view__score-label {
+  font-size: 0.75rem;
+  color: #8080a0;
+  text-transform: uppercase;
+}
+
+.debrief-view__breakdown h3,
+.debrief-view__explanation h3,
+.debrief-view__estimates h3,
+.debrief-view__feedback h3,
+.debrief-view__truth h3 {
+  font-size: 0.875rem;
+  color: #a0c4ff;
+  margin-bottom: 0.5rem;
+}
+
+.debrief-view__explanation {
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  background: #152030;
+  border: 1px solid #2a4a6a;
+  border-left: 3px solid #a0c4ff;
+  border-radius: 0.375rem;
+}
+
+.debrief-view__explanation p {
+  margin: 0;
+  color: #c0d8ff;
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.debrief-view__estimates {
+  margin-bottom: 1rem;
+}
+
+.estimate-card {
+  padding: 0.625rem;
+  margin-bottom: 0.5rem;
+  background: #151530;
+  border: 1px solid #2a2a4a;
+  border-radius: 0.375rem;
+}
+
+.estimate-card__id {
+  margin-bottom: 0.25rem;
+  color: #ffb8ff;
+  font-weight: 600;
+}
+
+.estimate-card__details {
+  color: #b8b8d8;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+}
+
+.debrief-view__metric {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.375rem;
+  font-size: 0.875rem;
+}
+
+.debrief-view__metric-name {
+  width: 80px;
+  text-transform: capitalize;
+}
+
+.debrief-view__metric-bar {
+  flex: 1;
+  height: 8px;
+  background: #1a1a3a;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.debrief-view__metric-fill {
+  display: block;
+  height: 100%;
+  background: #4a8aff;
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.debrief-view__metric-value {
+  width: 40px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.debrief-view__feedback ul,
+.debrief-view__breakdown ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+.debrief-view__feedback li {
+  padding: 0.5rem;
+  background: #151530;
+  border-radius: 0.25rem;
+  margin-bottom: 0.375rem;
+  font-size: 0.875rem;
+  border-left: 3px solid #4a8aff;
+}
+
+.debrief-view__truth {
+  margin-bottom: 1rem;
+}
+
+.truth-card {
+  background: #151530;
+  border: 1px solid #2a2a4a;
+  border-radius: 0.375rem;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.truth-card__id {
+  font-weight: 600;
+  color: #88ff88;
+  margin-bottom: 0.25rem;
+}
+
+.truth-card__details {
+  font-size: 0.875rem;
+  color: #9090b0;
+  line-height: 1.4;
+}
+
+.debrief-view__actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.debrief-view__btn {
+  flex: 1;
+  padding: 0.5rem;
+  background: #2a4a8a;
+  border: none;
+  border-radius: 0.375rem;
+  color: #ffffff;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.debrief-view__btn:hover {
+  background: #3a5aaa;
+}

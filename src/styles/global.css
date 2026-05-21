@@ -1,0 +1,135 @@
+@import './tokens.css';
+
+/* ─────────────────────────────────────
+   Base resets
+   ───────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: var(--tma-font-sans);
+  font-size: var(--tma-text-base);
+  line-height: var(--tma-leading-normal);
+  color: var(--tma-text-primary);
+  background-color: var(--tma-bg-deep);
+}
+
+/* ─────────────────────────────────────
+   App layout grid — trainer workspace
+   ───────────────────────────────────── */
+
+.app-workspace {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.app-header {
+  flex: 0 0 auto;
+  padding: var(--tma-space-2) var(--tma-space-4);
+  border-bottom: 1px solid var(--tma-border-subtle);
+  background-color: var(--tma-bg-base);
+}
+
+.app-header h1 {
+  font-size: var(--tma-text-lg);
+  font-weight: 600;
+  color: var(--tma-accent-cyan);
+}
+
+.app-main {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: row;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.app-footer {
+  flex: 0 0 auto;
+  border-top: 1px solid var(--tma-border-subtle);
+}
+
+/* ─────────────────────────────────────
+   Panel system
+   ───────────────────────────────────── */
+
+.panel {
+  padding: var(--tma-space-4);
+  background-color: var(--tma-bg-surface);
+  border: 1px solid var(--tma-border-subtle);
+}
+
+.panel__title {
+  font-size: var(--tma-text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--tma-space-3);
+  color: var(--tma-accent-cyan);
+}
+
+/* Feature-specific panel modifiers are owned by
+   other tasks; keep the originals untouched here. */
+
+.panel-lesson {
+  flex: 0 0 260px;
+  overflow-y: auto;
+}
+
+.panel-plot {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.panel-contacts {
+  flex: 0 0 280px;
+  overflow-y: auto;
+}
+
+.plot-placeholder {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--tma-border-default);
+  border-radius: var(--tma-radius-md);
+  color: var(--tma-text-muted);
+  text-align: center;
+  padding: var(--tma-space-4);
+}
+
+.panel-controls {
+  padding: var(--tma-space-3) var(--tma-space-4);
+}
+
+/* ─────────────────────────────────────
+   Responsive behavior (desktop-first)
+   ───────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .app-main {
+    flex-direction: column;
+  }
+
+  .panel-lesson,
+  .panel-contacts {
+    flex: 0 0 auto;
+    max-height: 200px;
+  }
+}

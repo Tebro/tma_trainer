@@ -1,0 +1,46 @@
+.tma-tooltip {
+  position: relative;
+  display: inline-flex;
+  cursor: help;
+}
+
+.tma-tooltip__tip {
+  position: absolute;
+  z-index: 1000;
+  padding: var(--tma-space-2) var(--tma-space-3);
+  font-family: var(--tma-font-sans);
+  font-size: var(--tma-text-xs);
+  line-height: var(--tma-leading-tight);
+  color: var(--tma-text-primary);
+  background-color: var(--tma-bg-raised);
+  border: 1px solid var(--tma-border-default);
+  border-radius: var(--tma-radius-sm);
+  box-shadow: var(--tma-shadow-md);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Placement */
+.tma-tooltip__tip--top {
+  bottom: calc(100% + var(--tma-space-2));
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tma-tooltip__tip--bottom {
+  top: calc(100% + var(--tma-space-2));
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tma-tooltip__tip--left {
+  right: calc(100% + var(--tma-space-2));
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.tma-tooltip__tip--right {
+  left: calc(100% + var(--tma-space-2));
+  top: 50%;
+  transform: translateY(-50%);
+}

@@ -1,0 +1,112 @@
+/**
+ * TMA Trainer — Design Tokens
+ *
+ * Dark submarine console aesthetic. Use these tokens everywhere;
+ * avoid hard-coding values in component styles.
+ */
+
+:root {
+  /* ─────────────────────────────────────
+     Color palette — background tones
+     ───────────────────────────────────── */
+  --tma-bg-deep: #07070d;
+  --tma-bg-base: #0c0c14;
+  --tma-bg-surface: #121220;
+  --tma-bg-raised: #1a1a2e;
+  --tma-bg-overlay: rgba(12, 12, 20, 0.85);
+
+  /* ─────────────────────────────────────
+     Color palette — text tones
+     ───────────────────────────────────── */
+  --tma-text-primary: #e8eaf0;
+  --tma-text-secondary: #a0a8b8;
+  --tma-text-muted: #606878;
+  --tma-text-inverse: #0c0c14;
+
+  /* ─────────────────────────────────────
+     Color palette — accent colors
+     (functional, multi-hue)
+     ───────────────────────────────────── */
+  --tma-accent-cyan: #4ecdc4;
+  --tma-accent-amber: #ffbe0b;
+  --tma-accent-magenta: #ff6b9d;
+  --tma-accent-lime: #a3e635;
+
+  /* ─────────────────────────────────────
+     Color palette — semantic colors
+     ───────────────────────────────────── */
+  --tma-color-error: #ff4d6d;
+  --tma-color-warning: var(--tma-accent-amber);
+  --tma-color-success: var(--tma-accent-lime);
+  --tma-color-info: var(--tma-accent-cyan);
+
+  /* ─────────────────────────────────────
+     Color palette — borders
+     ───────────────────────────────────── */
+  --tma-border-subtle: #1e1e32;
+  --tma-border-default: #2a2a44;
+  --tma-border-focus: var(--tma-accent-cyan);
+
+  /* ─────────────────────────────────────
+     Typography — font families
+     ───────────────────────────────────── */
+  --tma-font-sans:
+    system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --tma-font-mono:
+    'ui-monospace', 'SFMono-Regular', 'SF Mono', Menlo, Consolas,
+    'Liberation Mono', monospace;
+
+  /* ─────────────────────────────────────
+     Typography — scale
+     ───────────────────────────────────── */
+  --tma-text-xs: 0.75rem;
+  --tma-text-sm: 0.875rem;
+  --tma-text-base: 1rem;
+  --tma-text-lg: 1.125rem;
+  --tma-text-xl: 1.25rem;
+  --tma-text-2xl: 1.5rem;
+
+  /* ─────────────────────────────────────
+     Typography — line heights
+     ───────────────────────────────────── */
+  --tma-leading-tight: 1.25;
+  --tma-leading-normal: 1.5;
+  --tma-leading-relaxed: 1.75;
+
+  /* ─────────────────────────────────────
+     Spacing scale
+     ───────────────────────────────────── */
+  --tma-space-1: 0.25rem;
+  --tma-space-2: 0.5rem;
+  --tma-space-3: 0.75rem;
+  --tma-space-4: 1rem;
+  --tma-space-5: 1.25rem;
+  --tma-space-6: 1.5rem;
+  --tma-space-8: 2rem;
+  --tma-space-10: 2.5rem;
+  --tma-space-12: 3rem;
+
+  /* ─────────────────────────────────────
+     Border radius
+     ───────────────────────────────────── */
+  --tma-radius-sm: 0.25rem;
+  --tma-radius-md: 0.5rem;
+  --tma-radius-lg: 0.75rem;
+  --tma-radius-xl: 1rem;
+  --tma-radius-full: 9999px;
+
+  /* ─────────────────────────────────────
+     Shadows
+     ───────────────────────────────────── */
+  --tma-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --tma-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+  --tma-shadow-glow-cyan: 0 0 8px rgba(78, 205, 196, 0.25);
+  --tma-shadow-glow-amber: 0 0 8px rgba(255, 190, 11, 0.25);
+
+  /* ─────────────────────────────────────
+     Responsive breakpoints
+     (documented here; used in media queries)
+     ───────────────────────────────────── */
+  --tma-bp-tablet: 900px;
+}

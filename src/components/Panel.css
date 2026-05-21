@@ -1,0 +1,21 @@
+.tma-panel {
+  padding: var(--tma-space-4);
+  background-color: var(--tma-bg-surface);
+  border: 1px solid var(--tma-border-subtle);
+  border-radius: var(--tma-radius-md);
+}
+
+.tma-panel__title {
+  font-size: var(--tma-text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--tma-space-3);
+  color: var(--tma-accent-cyan);
+}
+
+.tma-panel__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--tma-space-3);
+}

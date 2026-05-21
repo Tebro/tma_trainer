@@ -1,0 +1,127 @@
+.estimate-form {
+  padding: 0.75rem;
+  background: #151530;
+  border-radius: 0.375rem;
+  border: 1px solid #2a2a4a;
+}
+
+.estimate-form__title {
+  font-size: 0.875rem;
+  color: #a0c4ff;
+  margin-bottom: 0.5rem;
+}
+
+.estimate-form__errors {
+  margin: 0 0 0.5rem 0;
+  padding: 0.5rem;
+  list-style: none;
+  background: #2a1a1a;
+  border: 1px solid #4a2a2a;
+  border-radius: 0.25rem;
+  color: #ff8888;
+  font-size: 0.75rem;
+}
+
+.estimate-form__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.estimate-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.estimate-form__field span {
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  color: #8080a0;
+}
+
+.estimate-form__field input,
+.estimate-form__field select {
+  background: #0a0a1a;
+  border: 1px solid #2a2a4a;
+  border-radius: 0.25rem;
+  padding: 0.375rem 0.5rem;
+  color: #d0d0e0;
+  font-size: 0.875rem;
+}
+
+.estimate-form__suggestion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  background: #0f1f24;
+  border: 1px solid #2a5a5a;
+  border-radius: 0.25rem;
+  color: #c8ffe8;
+  font-size: 0.75rem;
+}
+
+.estimate-form__suggestion button {
+  padding: 0.25rem 0.5rem;
+  background: #2a5a5a;
+  border: none;
+  border-radius: 0.25rem;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.estimate-form__submit {
+  width: 100%;
+  padding: 0.5rem;
+  background: #2a4a8a;
+  border: none;
+  border-radius: 0.375rem;
+  color: #ffffff;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.estimate-form__submit:hover {
+  background: #3a5aaa;
+}
+
+.estimate-form__history {
+  margin-top: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #2a2a4a;
+}
+
+.estimate-form__history h5 {
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  color: #8080a0;
+  margin-bottom: 0.375rem;
+}
+
+.estimate-form__history ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.75rem;
+}
+
+.estimate-form__history li {
+  padding: 0.25rem 0;
+  color: #c0c0e0;
+  border-bottom: 1px solid #1a1a2e;
+}
+
+.estimate-form__history li:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 600px) {
+  .estimate-form__grid {
+    grid-template-columns: 1fr;
+  }
+}
