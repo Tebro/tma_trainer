@@ -1,6 +1,16 @@
 # Implementation Roadmap
 
+## Current Implementation Status
+
+Milestones 0 through 5 are implemented and verified. The trainer currently includes the app shell, simulation core, tactical plot, lesson library, three guided lessons, seeded drill generator, nine drill templates, sonar cue/classification support, local progress/attempt persistence, timeline scrubbing, manual drill maneuvers, and debrief visualization with layer toggles.
+
+Current verification baseline: `pnpm verify` passes with 213 tests.
+
+See [Current Status](current-status.md) for the detailed implemented feature list, known limitations, and recommended next work.
+
 ## Milestone 0: Repository Setup
+
+Status: complete.
 
 Goal: establish the project foundation.
 
@@ -26,6 +36,8 @@ Agent-ready tasks:
 - `TMA-070`: establish the visual design system.
 
 ## Milestone 1: Simulation Core
+
+Status: complete. Also includes contact dropout windows and scenario updates for drill-time ownship maneuvers.
 
 Goal: create deterministic geometry and observation logic.
 
@@ -54,6 +66,8 @@ Agent-ready tasks:
 
 ## Milestone 2: Training Workspace
 
+Status: complete. Expanded with cursor range/bearing readout, click-to-suggest range, timeline scrubbing, live playback animation, and observation-time bearing origins.
+
 Goal: make the core loop usable in the browser.
 
 Deliverables:
@@ -81,6 +95,8 @@ Agent-ready tasks:
 
 ## Milestone 3: Guided Lessons
 
+Status: complete for MVP content. Task gating remains a follow-up.
+
 Goal: add structured learning content.
 
 Deliverables:
@@ -107,6 +123,8 @@ Agent-ready tasks:
 
 ## Milestone 4: Drill Generator
 
+Status: complete and expanded beyond the original MVP template count.
+
 Goal: make practice replayable.
 
 Deliverables:
@@ -114,6 +132,7 @@ Deliverables:
 - Seeded scenario randomization.
 - Difficulty controls.
 - Five MVP drill templates.
+- Additional drills for high-noise bearing-only, maneuver timing, rapid estimate, and lost-contact/reacquire practice.
 - Attempt history.
 - Best score tracking.
 
@@ -130,6 +149,8 @@ Agent-ready tasks:
 - `TMA-042`: implement attempt history.
 
 ## Milestone 5: Sonar Classification Layer
+
+Status: complete for simplified fictional cue/classification practice.
 
 Goal: add contact classification practice.
 
@@ -154,6 +175,8 @@ Agent-ready tasks:
 - `TMA-052`: implement classification scoring and the two-contact drill.
 
 ## Milestone 6: Scenario Editor And Sharing
+
+Status: not started.
 
 Goal: support community-created practice.
 
@@ -215,6 +238,9 @@ Use three validation loops:
 
 ## Future Ideas
 
+- Task gating and lesson prerequisites.
+- Maneuver timing and rapid-estimate scoring components.
+- First-class hypothesis records separate from final estimates.
 - Assisted hypothesis comparison.
 - Monte Carlo uncertainty visualization.
 - Optional audio recognition drills.

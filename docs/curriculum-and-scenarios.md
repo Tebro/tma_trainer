@@ -104,6 +104,8 @@ Practice:
 
 ## Scenario Types
 
+Current implemented drill templates cover the scenario types below plus four additional practice variants: high-noise bearing-only, maneuver timing, rapid estimate, and lost-contact/reacquire.
+
 ### Bearing-Only Intro
 
 One contact, constant course and speed, clean sensor data. User learns that bearing alone does not determine range.
@@ -176,6 +178,49 @@ Parameters:
 - Possible temporary contact loss.
 - Score includes correct contact ID continuity.
 
+### High-Noise Bearing-Only
+
+User works from sparse, noisy passive bearings and must avoid overfitting a single observation.
+
+Parameters:
+
+- One contact.
+- Elevated bearing noise.
+- Longer update interval.
+- Debrief emphasizes trend estimation.
+
+### Maneuver Timing
+
+User practices deciding when to turn or change speed to improve geometry.
+
+Parameters:
+
+- One contact with initially weak geometry.
+- Manual ownship maneuver controls are available.
+- Debrief emphasizes pre- and post-maneuver assumptions.
+
+### Rapid Estimate
+
+User has a short time window to produce a useful first solution.
+
+Parameters:
+
+- Short duration.
+- Fast update cadence.
+- Contact starts close enough that early approximation matters.
+
+Current limitation: scoring does not yet directly reward time-to-first-useful-estimate.
+
+### Lost Contact / Reacquire
+
+User maintains a predicted solution through temporary observation loss.
+
+Parameters:
+
+- One contact.
+- Configured `sensor.contactDropouts` window suppresses observations.
+- Reacquired bearings should be used to correct the predicted solution.
+
 ## Difficulty Model
 
 Difficulty should be controlled by independent settings:
@@ -203,6 +248,8 @@ Each drill should produce both numeric scores and qualitative feedback.
 - Contact ID continuity.
 - Time to first useful estimate.
 - Improvement after ownship maneuver.
+
+Current implementation scores range, course, speed, classification, and aggregate components. Time-to-first-useful-estimate, maneuver-quality scoring, contact ID continuity, and uncertainty-reduction scoring remain planned extensions.
 
 ### Feedback Components
 

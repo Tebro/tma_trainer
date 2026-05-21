@@ -75,7 +75,7 @@ The trainer should not require users to own any specific game. It should teach t
 
 ## MVP Scope
 
-The MVP should include:
+The MVP target was:
 
 - Browser-based single-user app.
 - 2D tactical plot with ownship, hidden target, bearing history, and revealed debrief.
@@ -93,6 +93,16 @@ The MVP should include:
 - Attempt scoring for range, course, speed, and classification.
 - Local storage for progress and settings.
 
+Current implemented scope exceeds the original MVP in several areas:
+
+- Nine randomized drill templates, including high-noise, maneuver-timing, rapid-estimate, and lost-contact/reacquire drills.
+- Manual ownship maneuver controls in drill mode with maneuver logging.
+- Timeline scrubber for manual time jumps.
+- Tactical plot cursor range/bearing readout and click-to-suggest range.
+- Debrief truth paths, estimate markers, estimate error lines, and layer toggles.
+- Contact dropout windows for temporary observation loss.
+- Attempt history view.
+
 ## Out Of Scope For MVP
 
 - Real-time multiplayer.
@@ -102,6 +112,13 @@ The MVP should include:
 - Classified, sensitive, or operationally specific naval tactics.
 - Full environmental propagation modeling.
 - Native desktop packaging.
+
+The following are now the highest-value post-MVP product gaps:
+
+- Lesson task gating so users must perform the intended observation or estimate before advancing.
+- Scoring for maneuver timing and time-to-first-useful-estimate.
+- Scenario editor, import/export, and community scenario sharing.
+- Richer debrief coaching summaries beyond metric feedback.
 
 ## Differentiators
 

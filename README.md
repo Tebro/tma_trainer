@@ -6,6 +6,7 @@ The app is intended for simulation and game literacy. It should teach repeatable
 
 ## Documents
 
+- [Current Status](docs/current-status.md): implemented features, verification baseline, known limitations, and next work.
 - [Product Plan](docs/product-plan.md): goals, audience, feature set, and MVP scope.
 - [Curriculum And Scenarios](docs/curriculum-and-scenarios.md): learning path, drills, scenario design, and assessment model.
 - [Technical Design](docs/technical-design.md): architecture, domain model, simulator components, and data storage.
@@ -129,7 +130,7 @@ No committed `dist/` directory is required. The deployment workflow creates the 
 
 ## Product Direction
 
-The first version should be a browser-based trainer with guided lessons, interactive plots, passive sonar exercises, and debriefs. It should teach the player how bearing-only information evolves over time, how ownship maneuvers improve a solution, how sensor confidence affects classification, and how to translate partial information into game decisions.
+The current version is a browser-based trainer with guided lessons, interactive plots, replayable drills, passive sonar-style cues, estimate forms, local progress, and debriefs. It teaches how bearing-only information evolves over time, how ownship maneuvers improve a solution, how sensor confidence affects classification, and how to translate partial information into game decisions.
 
 The core loop is:
 
@@ -146,3 +147,7 @@ The core loop is:
 - A returning player can practice short drills without replaying long lessons.
 - The app can model game-like uncertainty, imperfect contact classification, and noisy sensor cues.
 - The content remains useful across multiple submarine games through configurable assumptions.
+
+## Current Verification Baseline
+
+Run `pnpm verify` before handing off changes. The current baseline is 213 passing tests plus lint, format, TypeScript, and production build.

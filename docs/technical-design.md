@@ -2,16 +2,16 @@
 
 ## Architecture Overview
 
-The app should be a browser-based single-page application with a deterministic simulation core, interactive visualization layer, lesson engine, and local persistence. The simulation should be separated from the UI so lessons, drills, tests, and future game adapters can reuse the same domain logic.
+The app is a browser-based React single-page application with a deterministic simulation core, interactive visualization layer, lesson engine, drill generator, scoring/debrief layer, and local persistence. The simulation is separated from the UI so lessons, drills, tests, and future game adapters can reuse the same domain logic.
 
-Recommended shape:
+Current shape:
 
-- Frontend framework: React, Vue, Svelte, or another component-driven web framework.
-- Rendering: Canvas or SVG for the tactical plot; Canvas is preferred if playback and dense overlays become heavy.
-- State: Small centralized store for scenario state, playback time, user estimates, and UI selections.
-- Persistence: Local storage or IndexedDB for MVP progress and attempts.
-- Content: JSON or Markdown-plus-frontmatter lesson definitions.
-- Testing: Unit tests for geometry and scoring; browser tests for key workflows.
+- Frontend framework: React + TypeScript + Vite.
+- Rendering: SVG tactical plot.
+- State: React component state plus deterministic simulation classes.
+- Persistence: localStorage summaries for progress, attempts, and settings.
+- Content: JSON lesson/scenario definitions.
+- Testing: Vitest unit/integration tests plus TypeScript, ESLint, Prettier, and production build through `pnpm verify`.
 
 ## Domain Model
 
@@ -20,6 +20,7 @@ Core entities:
 - `Scenario`: initial conditions, contacts, environment assumptions, lesson tasks, and scoring rules.
 - `Ownship`: position, course, speed, depth abstraction, and maneuver schedule.
 - `Contact`: truth track, emitted cues, classification category, and behavior profile.
+- `SensorSettings`: noise, update interval, classification ambiguity, and optional contact dropout windows.
 - `Observation`: timestamped bearing, signal cue, contact ID, confidence, and source.
 - `Estimate`: user's range, course, speed, classification, confidence, and notes.
 - `Maneuver`: ownship course or speed change requested by the user.
@@ -35,6 +36,8 @@ The MVP simulation can use a 2D plane with simplified kinematics:
 - Time advanced in fixed simulation ticks.
 - Contacts follow constant course and speed unless the scenario defines maneuvers.
 - Sensor observations derive from truth with configurable noise and update intervals.
+- Contact dropout windows can suppress observations for lost-contact/reacquire drills.
+- Drill-time ownship maneuvers update the active scenario and observation generator.
 
 Important utilities:
 
@@ -51,10 +54,10 @@ The trainer should make uncertainty explicit without requiring a full mathematic
 
 MVP approach:
 
-- Store user-created bearing lines and estimate vectors.
-- Show a shaded uncertainty region derived from recent observations and scenario difficulty.
+- Store user estimates and plot-click hypothesis markers.
+- Show possible-position markers along latest bearings in ambiguity-focused contexts.
 - Score submitted estimates against truth at the same timestamp.
-- Explain whether new observations narrowed or widened uncertainty.
+- Explain under-constrained estimates and reveal truth paths/errors in debrief.
 
 Future approach:
 
@@ -87,10 +90,12 @@ Avoid:
 The main workspace should fit the user's workflow:
 
 - Center: tactical plot with ownship, bearing history, user marks, and timeline cursor.
+- Plot overlays: cursor range/bearing readout, ownship course/speed, possible-position markers, estimate markers, truth paths, and debrief error lines.
 - Left or top: lesson objective, current task, and hint controls.
 - Right: sonar/contact panel with contact list and selected-contact details.
 - Bottom: timeline controls, playback speed, and estimate submission form.
 - Debrief overlay or route: truth replay, score breakdown, and explanation.
+- Bottom: playback controls with play/pause, fixed step, speed, and draggable timeline scrubber.
 
 The interface should support keyboard shortcuts eventually, but the MVP should be fully usable with visible controls.
 
@@ -171,6 +176,8 @@ MVP local data:
 - User settings.
 - Scenario editor drafts.
 
+Current implementation stores lesson progress, attempt summaries, and settings in localStorage. Scenario editor drafts remain future work.
+
 IndexedDB is preferable if attempts include time-series data. Local storage is acceptable for a prototype with small summaries.
 
 ## Testing Strategy
@@ -183,6 +190,8 @@ IndexedDB is preferable if attempts include time-series data. Local storage is a
 - Estimate scoring.
 - Scenario randomization bounds.
 - Deterministic seeded drills.
+- Observation dropout windows.
+- Scenario playback updates after drill maneuvers.
 
 ### Integration Tests
 
@@ -197,6 +206,7 @@ IndexedDB is preferable if attempts include time-series data. Local storage is a
 - Contact labels remain legible.
 - Timeline controls work at desktop and mobile widths.
 - Debrief truth overlay aligns with recorded observations.
+- Debrief layer toggles remain readable and do not obscure critical plot information.
 
 ## Extensibility
 

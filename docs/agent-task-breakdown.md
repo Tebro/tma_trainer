@@ -4,6 +4,20 @@ This document converts the product plan and roadmap into implementation tasks th
 
 Use this as the working backlog once implementation starts. The milestone roadmap explains sequence at a product level; this file explains how to split the work safely.
 
+## Current Task Status
+
+Milestones 0 through 5 are complete in the current implementation. The app now has guided lessons, seeded drill generation, nine drill templates, sonar cue/classification support, timeline scrubbing, manual drill maneuvers, local persistence, attempt history, and debrief visualization with layer toggles.
+
+Use [Current Status](current-status.md) for the up-to-date implemented feature list and known limitations.
+
+Recommended next assignable tasks:
+
+- `TMA-033`: add lesson task gating and completion prerequisites.
+- `TMA-043`: add maneuver-quality and time-to-first-useful-estimate scoring for drills.
+- `TMA-044`: add richer drill goal descriptions and success criteria in the drill workspace.
+- `TMA-045`: add first-class hypothesis records separate from submitted estimates.
+- `TMA-060` through `TMA-062`: scenario editor and import/export.
+
 ## Assignment Rules
 
 - Give each assignee one task ID at a time unless the tasks share the same file ownership.
